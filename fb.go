@@ -91,6 +91,7 @@ func VerificationEndpoint(w http.ResponseWriter, r *http.Request) {
 
 func ProcessMessage(m Messaging) {
 	text := strings.ToLower(strings.TrimSpace(m.Message.Text))
+	fmt.Println(entries)
 	if entry, ok := entries[text]; ok {
 		var text string
 		// subscribe the user
