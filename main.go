@@ -26,7 +26,7 @@ func init() {
 }
 
 func main() {
-	//go StartMessengerServer()
+	go StartMessengerServer()
 	PeriodicallyCheckTitanFitness(time.Minute)
 }
 

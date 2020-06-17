@@ -39,7 +39,9 @@ func StartMessengerServer() {
 	flag.Parse()
 	if verifyToken == "" || appSecret == "" || pageToken == "" {
 		fmt.Println("missing environment variables")
-		flag.Usage()
+		fmt.Println("appSecret", appSecret)
+		fmt.Println("pageToken", pageToken)
+		fmt.Println("verifyToken", verifyToken)
 		os.Exit(-1)
 	}
 	// Create a new messenger client
@@ -86,19 +88,16 @@ func StartMessengerServer() {
 }
 
 func StockAlertMessage(key string) {
-	flag.Parse()
 	appSecret := os.Getenv("app-secret")
 	pageToken := os.Getenv("page-token")
 	verifyToken := os.Getenv("verify_token")
-
 	if verifyToken == "" || appSecret == "" || pageToken == "" {
 		fmt.Println("missing arguments")
-		fmt.Println()
-		flag.Usage()
-
+		fmt.Println("appSecret", appSecret)
+		fmt.Println("pageToken", pageToken)
+		fmt.Println("verifyToken", verifyToken)
 		os.Exit(-1)
 	}
-
 	// Create a new messenger client
 	client := messenger.New(messenger.Options{
 		Verify:      *verify,
