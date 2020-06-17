@@ -71,7 +71,7 @@ func (e *Entries) RemoveSubscription(key string, u User) {
 	// get the sub
 	entry := (*e)[key]
 	// delete the user from the sub
-	delete(entry.Subs, u)
+	delete(entry.Subs, u.String())
 	// set the sub
 	(*e)[key] = entry
 }
