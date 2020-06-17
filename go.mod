@@ -5,5 +5,5 @@ go 1.13
 require (
 	github.com/gocolly/colly v1.2.0
 	github.com/gocolly/colly/v2 v2.1.0
-	github.com/paked/messenger v1.1.1
+	github.com/gorilla/mux v1.7.4
 )

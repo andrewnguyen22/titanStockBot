@@ -7,7 +7,6 @@ import (
 
 const (
 	EntriesDB = "entries.json"
-	SubsDB    = "subs.json"
 )
 
 var (

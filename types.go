@@ -4,7 +4,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
-	"strconv"
 	"time"
 )
 
@@ -53,7 +52,7 @@ func (e *Entries) FromJSONFile() error {
 
 func (e *Entries) String() (s string) {
 	for name := range *e {
-		s += fmt.Sprintf("%s\n", name)
+		s += fmt.Sprintf("%s,\n", name)
 	}
 	return
 }
@@ -62,7 +61,7 @@ func (e *Entries) AddSubscription(key string, user User) {
 	// get the sub
 	entry := (*e)[key]
 	// add the user to the sub with empty structure
-	entry.Subs[user.String()] = struct{}{}
+	entry.Subs[user.UserID] = struct{}{}
 	// set the sub
 	(*e)[key] = entry
 }
@@ -71,17 +70,9 @@ func (e *Entries) RemoveSubscription(key string, u User) {
 	// get the sub
 	entry := (*e)[key]
 	// delete the user from the sub
-	delete(entry.Subs, u.String())
+	delete(entry.Subs, u.UserID)
 	// set the sub
 	(*e)[key] = entry
-}
-
-type User struct {
-	UserID int64 `json:"user-id"`
-}
-
-func (u User) String() string {
-	return strconv.FormatInt(u.UserID, 10)
 }
 
 type Subscribers map[string]struct{}
