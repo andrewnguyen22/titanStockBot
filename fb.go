@@ -29,7 +29,6 @@ var (
 var (
 	verify = flag.Bool("should-verify", false, "Whether or not the app should verify itself")
 	host   = flag.String("host", "0.0.0.0", "The host used to serve the messenger bot")
-	port   = flag.Int("port", 8080, "The port used to serve the messenger bot")
 )
 
 func StartMessengerServer() {
@@ -82,7 +81,8 @@ func StartMessengerServer() {
 			}
 		}
 	})
-	addr := fmt.Sprintf("%s:%d", *host, *port)
+	port := os.Getenv("PORT")
+	addr := fmt.Sprintf("%s:%d", *host, port)
 	fmt.Println("Serving messenger bot on", addr)
 	log.Fatal(http.ListenAndServe(addr, client.Handler()))
 }
