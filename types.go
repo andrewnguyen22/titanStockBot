@@ -33,7 +33,7 @@ type Entry struct {
 }
 
 func (e Entry) StatusMsg() string {
-	location, _ := time.LoadLocation("EST")
+	location, _ := time.LoadLocation("America/New_York")
 	if e.Status == InStock {
 		return fmt.Sprintf("%s is now in stock! As of %s.\nGet it at %s", e.Name, e.TimeStamp.In(location), e.URL)
 	}

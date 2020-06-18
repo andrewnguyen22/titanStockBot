@@ -18,8 +18,9 @@ func init() {
 	if err != nil && !os.IsNotExist(err) {
 		panic(err)
 	}
-	for _, entry := range entries {
-		entry.Subs =  make(map[string]struct{}) // map[userIDString]Empty
+	for key, entry := range entries {
+		entry.Subs = make(map[string]struct{}) // map[userIDString]Empty
+		entries[key] = entry
 	}
 	ScrapeAllEntries(entries)
 }

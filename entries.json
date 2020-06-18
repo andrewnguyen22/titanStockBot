@@ -1,58 +1,210 @@
 {
-    "Elite Olympic Bumpbers": {
-        "key": "Elite Olympic Bumpbers",
-        "url": "https://www.titan.fitness/strength/weight-plates/bumper-plates/elite-olympic-bumper-plate-%7C-black-%7C-55-lb-single/430155.2.html",
-        "time": "2020-06-17T18:27:56.57009-04:00",
-        "stock-status": 1,
-        "subscribers": null
-    },
-    "Titan Rack Base Model": {
-        "key": "Titan Rack Base Model",
-        "url": "https://www.titan.fitness/racks/titan-series-power-rack---base-model-%7C-100%22/401034.html",
-        "time": "2020-06-17T18:27:57.096781-04:00",
-        "stock-status": 2,
-        "subscribers": null
-    },
-    "Titan Rack Model": {
-        "key": "Titan Rack Model",
-        "url": "https://www.titan.fitness/racks/power-racks/titan-series/titan-series-power-rack-%7C-100%22/401011.html",
-        "time": "2020-06-17T18:27:52.094181-04:00",
-        "stock-status": 2,
-        "subscribers": null
-    },
-    "Titan Short T3 Rack": {
-        "key": "Titan Short T3 Rack",
-        "url": "https://www.titan.fitness/t3-series-power-rack/T-3-POWER-RACK.html",
-        "time": "2020-06-17T18:27:52.48648-04:00",
-        "stock-status": 1,
-        "subscribers": null
-    },
-    "Titan Standard T2 Rack": {
-        "key": "Titan Standard T2 Rack",
-        "url": "https://www.titan.fitness/racks/power-racks/t-2-series/titan-t-2-series-power-rack/400100.html",
-        "time": "2020-06-17T18:27:55.277131-04:00",
-        "stock-status": 1,
-        "subscribers": null
-    },
-    "Titan Tall T3 Rack": {
-        "key": "Titan Tall T3 Rack",
-        "url": "https://www.titan.fitness/t3-series-power-rack/T-3-POWER-RACK.html",
-        "time": "2020-06-17T18:27:55.584413-04:00",
-        "stock-status": 2,
-        "subscribers": null
-    },
-    "X3 Tall Bolt Rack": {
-        "key": "X3 Tall Bolt Rack",
-        "url": "https://www.titan.fitness/racks/power-racks/x-3-series/x-3-series-bolt-down-power-rack-%7C-tall-%7C-36%22-depth/400296.html",
-        "time": "2020-06-17T18:27:55.898785-04:00",
-        "stock-status": 2,
-        "subscribers": null
-    },
-    "X3 Tall Flat Rack": {
-        "key": "X3 Tall Flat Rack",
-        "url": "https://www.titan.fitness/racks/power-racks/x-3-series/x-3-tall-flat-foot-power-rack/400424.html",
-        "time": "2020-06-17T18:27:56.194303-04:00",
-        "stock-status": 2,
-        "subscribers": null
-    }
+  "elite 55 black bumpers": {
+    "key": "elite 55 black bumpers",
+    "url": "https://www.titan.fitness/strength/weight-plates/bumper-plates/elite-olympic-bumper-plate-%7c-black-%7c-55-lb-single/430155.2.html"
+  },
+  "elite 45 black bumpers": {
+    "key": "elite 45 black bumpers",
+    "url": "https://www.titan.fitness/strength/weight-plates/bumper-plates/elite-olympic-bumper-plate-%7C-black-%7C-45-lb-single/430154.2.html"
+  },
+  "elite 35 black bumpers": {
+    "key": "elite 35 black bumpers",
+    "url": "https://www.titan.fitness/strength/weight-plates/bumper-plates/elite-olympic-bumper-plate-%7C-black-%7C-35-lb-single/430153.2.html"
+  },
+  "elite 25 color bumpers": {
+    "key": "elite 25 color bumpers",
+    "url": "https://www.titan.fitness/strength/weight-plates/bumper-plates/elite-olympic-bumper-plates-%7C-color-%7C-25-kg-single/430165.html"
+  },
+  "25 olympic black bumpers": {
+    "key": "25 olympic bumpers",
+    "url": "https://www.titan.fitness/strength/weight-plates/bumper-plates/olympic-rubber-bumper-plates-%7C-black-%7C-25-lb-pair/430103.2.html"
+  },
+  "10 olympic black bumpers": {
+    "key": "10 olympic bumpers",
+    "url": "https://www.titan.fitness/strength/weight-plates/bumper-plates/olympic-rubber-bumper-plates-%7C-black-%7C-10-lb-pair/430101.2.html"
+  },
+  "15 olympic black bumpers": {
+    "key": "15 olympic bumpers",
+    "url": "https://www.titan.fitness/strength/weight-plates/bumper-plates/olympic-rubber-bumper-plates-%7C-black-%7C-15-lb-pair/430102.2.html"
+  },
+  "titan rack base model": {
+    "key": "titan rack base model",
+    "url": "https://www.titan.fitness/racks/titan-series-power-rack---base-model-%7c-100%22/401034.html"
+  },
+  "titan rack model": {
+    "key": "titan rack model",
+    "url": "https://www.titan.fitness/racks/power-racks/titan-series/titan-series-power-rack-%7c-100%22/401011.html"
+  },
+  "titan short t3 rack": {
+    "key": "titan short t3 rack",
+    "url": "https://www.titan.fitness/t3-series-power-rack/t-3-power-rack.html"
+  },
+  "titan standard t2 rack": {
+    "key": "titan standard t2 rack",
+    "url": "https://www.titan.fitness/racks/power-racks/t-2-series/titan-t-2-series-power-rack/400100.html"
+  },
+  "titan tall t3 rack": {
+    "key": "titan tall t3 rack",
+    "url": "https://www.titan.fitness/t3-series-power-rack/t-3-power-rack.html"
+  },
+  "titan tall t3 v2": {
+    "key": "titan tall t3 v2",
+    "url": "https://www.titan.fitness/racks/wallmounts/folding-power-racks/t-3-series-folding-power-rack-%7C-tall-%7C-41-in-depth-%7C-v2/400992.html"
+  },
+  "x3 tall bolt rack": {
+    "key": "x3 tall bolt rack",
+    "url": "https://www.titan.fitness/racks/power-racks/x-3-series/x-3-series-bolt-down-power-rack-%7c-tall-%7c-36%22-depth/400296.html"
+  },
+  "x3 tall flat rack": {
+    "key": "x3 tall flat rack",
+    "url": "https://www.titan.fitness/racks/power-racks/x-3-series/x-3-tall-flat-foot-power-rack/400424.html"
+  },
+  "x3 tall folding rack": {
+    "key": "x3 tall folding rack",
+    "url": "https://www.titan.fitness/racks/wallmounts/folding-power-racks/x-3-series-folding-power-rack-%7C-tall-%7C-41.5-in-depth/400505.html"
+  },
+  "x3 short folding v2": {
+    "key": "x3 short folding v2",
+    "url": "https://www.titan.fitness/racks/power-racks/t-3-series/t-3-series-short-folding-power-rack-%7C-21.5%22-depth-%7C-v2/400998.html"
+  },
+  "x3 short folding v1": {
+    "key": "x3 short folding v1",
+    "url": "https://www.titan.fitness/racks/wallmounts/folding-power-racks/x-3-series-folding-power-rack-%7C-short-%7C-21.5-in-depth/400497.html"
+  },
+  "titan x3 half rack": {
+    "key": "titan x3 half rack",
+    "url": "https://www.titan.fitness/racks/power-racks/x-3-series/x-3-half-rack/400406.html"
+  },
+  "x2 tall bolt down": {
+    "key": "x2 tall bolt down",
+    "url": "https://www.titan.fitness/racks/power-racks/x-2-series/x-2-series-power-rack-%7C-tall-%7C-bolt-down-%7C-sku%3A-400302/400302.html"
+  },
+  "t3 tall fold rack": {
+    "key": "t3 tall fold rack",
+    "url": "https://www.titan.fitness/racks/power-racks/t-3-series/t-3-series-folding-power-rack-%7C-tall-%7C-21.5-in-depth-%7C-v2/400993.html"
+  },
+  "t2 10in extension": {
+    "key": "t2 10in extension",
+    "url": "https://www.titan.fitness/racks/power-racks/t-2-series/10%22-extension-kit-for-t-2-short-power-rack/400786.html"
+  },
+  "x3 24in extension": {
+    "key": "x3 24in extension",
+    "url": "https://www.titan.fitness/racks/power-racks/x-3-series/24%22-extension-kit-for-x-3-short-flat-foot-power-rack/400456.html"
+  },
+  "t3 short folding": {
+    "key": "t3 short folding",
+    "url": "https://www.titan.fitness/racks/wallmounts/folding-power-racks/t-3-series-folding-power-rack-%7C-short-%7C-41-in-depth-%7C-v2/400999.html"
+  },
+  "t3 short squat stand": {
+    "key": "t3 squat stand",
+    "url": "https://www.titan.fitness/racks/squat-stands/t-3-series/t-3-series-short-squat-stand-with-j-hooks/400925.2.html"
+  },
+  "t3 independent stands": {
+    "key": "t3 independent stands",
+    "url": "https://www.titan.fitness/racks/squat-stands/t-3-series/t-3-series-independent-squat-stand/400678.html"
+  },
+  "t3 series squat v2": {
+    "key": "t3 series squat v2",
+    "url": "https://www.titan.fitness/racks/squat-stands/t-3-series/titan-t-3-series-squat-rack-v2/400994.html"
+  },
+  "t3 independent pullup": {
+    "key": "t3 independent pullup",
+    "url": "https://www.titan.fitness/racks/squat-stands/t-3-series/t-3-series-independent-squat-stand-w%2F-pull-up-bar/400419.html"
+  },
+  "x3 series short stand": {
+    "key": "x3 series short stand",
+    "url": "https://www.titan.fitness/racks/squat-stands/x-3-series/x-3-short-squat-stand/400423.html"
+  },
+  "x3 tall squat stand": {
+    "key": "x3 tall squat stand",
+    "url": "https://www.titan.fitness/racks/squat-stands/x-3-series/x-3-series-tall-squat-stand-with-pull-up-bar/400403.html"
+  },
+  "x3 tall 24 bolt": {
+    "key": "x3 tall 24 bolt",
+    "url": "https://www.titan.fitness/racks/power-racks/x-3-series/x-3-series-bolt-down-power-rack-%7C-tall-%7C-24%22-depth/400295.html"
+  },
+  "titan t2 short rack": {
+    "key": "titan t2 short rack",
+    "url": "https://www.titan.fitness/racks/power-racks/t-2-series/titan-t-2-series-short-power-rack/400160.html"
+  },
+  "x3 short 36 bolt": {
+    "key": "x3 short 36 bolt",
+    "url": "https://www.titan.fitness/racks/power-racks/x-3-series/x-3-series-bolt-down-power-rack-%7C-short-%7C-36%22-depth/400298.html"
+  },
+  "x3 short flat foot": {
+    "key": "x3 short flat foot",
+    "url": "https://www.titan.fitness/racks/power-racks/x-3-series/x-3-short-flat-foot-power-rack/400425.html"
+  },
+  "olympic barbell oxide": {
+    "key": "olympic barbell oxide",
+    "url": "https://www.titan.fitness/strength/barbells/olympic/blues-city-olympic-barbell-%7C-made-in-usa-%7C-black-oxide/400806.html"
+  },
+  "womens barbell pink": {
+    "key": "womens barbell pink",
+    "url": "https://www.titan.fitness/strength/barbells/olympic/women%E2%80%99s-olympic-bombshell-bar-%7C-made-in-usa-%7C-pink-cerakote/400807.html"
+  },
+  "womens barbell purple": {
+    "key": "womens barbell purple",
+    "url": "https://www.titan.fitness/strength/barbells/olympic/women%E2%80%99s-olympic-bombshell-bar-%7C-made-in-usa-%7C-purple-cerakote/400809.html"
+  },
+  "womens barbell red": {
+    "key": "womens barbell red",
+    "url": "https://www.titan.fitness/strength/barbells/olympic/women%E2%80%99s-olympic-bombshell-bar-%7C-made-in-usa-%7C-red-cerakote/400808.html"
+  },
+  "olympic barbell red": {
+    "key": "olympic barbell red",
+    "url": "https://www.titan.fitness/strength/barbells/olympic/blues-city-olympic-barbell-%7C-made-in-usa-%7C-red-cerakote/400802.html"
+  },
+  "olympic barbell black": {
+    "key": "olympic barbell black",
+    "url": "https://www.titan.fitness/strength/barbells/olympic/blues-city-olympic-barbell-%7C-made-in-usa-%7C-black-cerakote/400804.html"
+  },
+  "olympic barbell blue": {
+    "key": "olympic barbell blue",
+    "url": "https://www.titan.fitness/strength/barbells/olympic/blues-city-olympic-barbell-%7C-made-in-usa-%7C-blue-cerakote/400803.html"
+  },
+  "olympic barbell bronze": {
+    "key": "olympic barbell bronze",
+    "url": "https://www.titan.fitness/strength/barbells/olympic/blues-city-olympic-barbell-%7C-made-in-usa-%7C-bronze-cerakote/400805.html"
+  },
+  "atlas olympic barbell": {
+    "key": "atlas olympic barbell",
+    "url": "https://www.titan.fitness/strength/barbells/olympic/atlas-bar-%E2%80%93-men%27s-20kg-barbell/430090.html"
+  },
+  "atlas womens barbell": {
+    "key": "atlas womens barbell",
+    "url": "https://www.titan.fitness/strength/barbells/olympic/atlas-bar-%E2%80%93-women%27s-15kg-barbell/430089.html"
+  },
+  "olympic power barbell": {
+    "key": "olympic power barbell",
+    "url": "https://www.titan.fitness/strength/barbells/olympic/olympic-power-bar-%E2%80%93-86-in.-chrome/430087.html"
+  },
+  "economy olympic barbell": {
+    "key": "economy olympic barbell",
+    "url": "https://www.titan.fitness/strength/barbells/olympic/economy-olympic-bar-%E2%80%93-84-in/430085.html"
+  },
+  "regular olympic barbell": {
+    "key": "regular olympic barbell",
+    "url": "https://www.titan.fitness/strength/barbells/olympic/regular-bar-%E2%80%93-20kg-chrome/430086.html"
+  },
+  "titan flat weight bench": {
+    "key": "titan flat weight bench",
+    "url": "https://www.titan.fitness/strength/benches/flat-weight-bench/400201.2.html"
+  },
+  "incline weight bench v2": {
+    "key": "incline weight bench v2",
+    "url": "https://www.titan.fitness/strength/benches/adjustable/incline-bench-%E2%80%93-v2/400894.2.html"
+  },
+  "adjustable fid bench": {
+    "key": "adjustable fid bench",
+    "url": "https://www.titan.fitness/strength/benches/adjustable/adjustable-fid-bench/400636.2.html"
+  },
+  "titan fit hefty bench": {
+    "key": "hefty bench",
+    "url": "https://www.titan.fitness/strength/benches/hefty-bench-%E2%80%93-v2/400348.2.html"
+  },
+  "reverse hyper extension": {
+    "key": "reverse hyper extension",
+    "url": "https://www.titan.fitness/strength/specialty-machines/lower-body/h-pnd/400593.html"
+  }
 }

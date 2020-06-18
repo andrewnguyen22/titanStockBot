@@ -14,11 +14,9 @@ import (
 )
 
 const (
-	FacebookApi = "https://graph.facebook.com/v2.6/me/messages?access_token=%s"
-	Welcome     = "Welcome to titan fitness stock bot! " +
-		"This bot will check the stock status on certain titan fitness products and notify you of stock changes. " +
-		"Type the product name to subscribe." +
-		"You may subscribe to the following options:\n"
+	FacebookApi     = "https://graph.facebook.com/v2.6/me/messages?access_token=%s"
+	Subscribed      = " you are now subscribed to this product. If it changes, you will be notified.\n "
+	Donate          = "If this bot helped you, consider donating to me :)\n @ paypal.me/titanfitnessbot!"
 	InvalidResponse = "Sorry! That request is not valid. " +
 		"Type the product name to subscribe." +
 		"You may subscribe to the following products:\n"
@@ -93,21 +91,12 @@ func ProcessMessage(m Messaging) {
 	text := strings.ToLower(strings.TrimSpace(m.Message.Text))
 	fmt.Println("message received: ", text)
 	entry, ok := entries[text]
-	fmt.Println(entry.Name)
-	fmt.Println(ok)
 	if ok {
-		var text string
 		// subscribe the user
 		u := User{UserID: m.Sender.UserID}
 		entry.Subs[u.UserID] = struct{}{}
 		entries[text] = entry
-		// get the status message
-		if e, ok := entries[text]; !ok {
-			fmt.Println("critical error", text, "found in subscriptions, but not entries")
-			text = "uh oh, there's a problem with the bot! try again later :)"
-		} else {
-			text = e.StatusMsg()
-		}
+		text = entry.StatusMsg() + Subscribed + Donate
 	} else {
 		// invalid query
 		text = InvalidResponse + entries.String()
@@ -152,7 +141,6 @@ func MessagesEndpoint(w http.ResponseWriter, r *http.Request) {
 		fmt.Println("json decoding error in message endpoint", err)
 		return
 	}
-	fmt.Println(callback)
 	if callback.Object == "page" {
 		for _, entry := range callback.Entry {
 			for _, event := range entry.Messaging {
@@ -178,7 +166,7 @@ func MessagesEndpoint(w http.ResponseWriter, r *http.Request) {
 func StartMessengerServer() {
 	r := mux.NewRouter()
 	port := os.Getenv("PORT")
-	if port == ""{
+	if port == "" {
 		port = "8080"
 	}
 	r.HandleFunc("/", VerificationEndpoint).Methods("GET")
@@ -195,20 +183,9 @@ func StockAlertMessage(key string) {
 		r := Response{
 			Recipient: User{UserID: uID},
 			Message: Message{
-				Text: e.StatusMsg(),
+				Text: e.StatusMsg() + Subscribed + Donate,
 			},
 		}
 		sendMessage(r)
 	}
-}
-
-func TestMessage(){
-	id := "10201689843206516"
-	r := Response{
-		Recipient: User{UserID: id},
-		Message: Message{
-			Text: "test",
-		},
-	}
-	sendMessage(r)
 }
