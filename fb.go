@@ -19,7 +19,7 @@ const (
 	Unsubscribed    = "You are now unsubscribed from all! Sorry to see you go :("
 	Donate          = "If this bot helped you, consider donating to me :) @ paypal.me/titanfitnessbot!"
 	InvalidResponse = "Sorry! That request is not valid. " +
-		"Type the product name to subscribe or stop to unsubscribe from all." +
+		"Type the product name to subscribe or stop to unsubscribe from all.\n" +
 		"You may subscribe to the following products:\n"
 )
 

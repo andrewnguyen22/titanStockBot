@@ -34,11 +34,10 @@ type Entry struct {
 }
 
 func (e Entry) StatusMsg() string {
-	location, _ := time.LoadLocation("America/New_York")
 	if e.Status == InStock {
-		return fmt.Sprintf("%s is now in stock! As of %s.\nGet it at %s", e.Name, e.TimeStamp.In(location), e.URL)
+		return fmt.Sprintf("As of %s ago, %s is now in stock!\nGet it at %s", e.Name, int(time.Since(e.TimeStamp).Round(time.Minute).Minutes()), e.URL)
 	}
-	return fmt.Sprintf("%s is out of stock... As of %s", e.Name, e.TimeStamp.In(location))
+	return fmt.Sprintf("As of %s minutes ago, %s is out of stock", e.Name, int(time.Since(e.TimeStamp).Round(time.Minute).Minutes()))
 }
 
 type Entries map[string]Entry
