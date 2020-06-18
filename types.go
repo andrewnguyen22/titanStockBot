@@ -54,6 +54,11 @@ func (e *Entries) FromJSONFile() error {
 func (e *Entries) String() (s string) {
 	l := len(*e)
 	sortedEntries := make([]string, l)
+	i := 0
+	for key := range (*e) {
+		sortedEntries[i] = key
+		i++
+	}
 	sort.Strings(sortedEntries)
 	for i, name := range sortedEntries {
 		if i == l-1 {
