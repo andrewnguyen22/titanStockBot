@@ -21,7 +21,8 @@ func (ss StockStatus) String() string {
 	} else if ss == OutOfStock {
 		return "Out Of Stock"
 	} else {
-		panic(fmt.Sprintf("invalid stock status: %d", ss))
+		fmt.Println(fmt.Sprintf("invalid stock status: %d", ss))
+		return "invalid stock status"
 	}
 }
 
