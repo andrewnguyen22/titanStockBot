@@ -39,8 +39,10 @@ func scrapeTitanURL(name, url string) (ss StockStatus, err error) {
 		// check for option
 		c.OnHTML("option", func(e *colly.HTMLElement) {
 			fmt.Println("in t3 tall...")
+			optionTxt:=strings.ToLower(strings.TrimSpace(e.Text))
+			fmt.Println("option text: ", optionTxt)
 			// Print link
-			if strings.Contains(strings.ToLower(e.Text), "tall") {
+			if strings.Contains(optionTxt, "tall") {
 				fmt.Println("t3 tall stock check... ", ss.String())
 				ss = stockCheck(e)
 				return
@@ -50,8 +52,10 @@ func scrapeTitanURL(name, url string) (ss StockStatus, err error) {
 		// check for option
 		c.OnHTML("option", func(e *colly.HTMLElement) {
 			fmt.Println("in t3 short...")
+			optionTxt:=strings.ToLower(strings.TrimSpace(e.Text))
+			fmt.Println("option text: ", optionTxt)
 			// Print link
-			if strings.Contains(strings.ToLower(e.Text), "short") {
+			if strings.Contains(optionTxt, "short") {
 				fmt.Println("t3 short stock check... ", ss.String())
 				ss = stockCheck(e)
 				return
