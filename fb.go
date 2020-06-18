@@ -16,7 +16,7 @@ import (
 const (
 	FacebookApi     = "https://graph.facebook.com/v2.6/me/messages?access_token=%s"
 	Subscribed      = " you are now subscribed to this product. If it changes, you will be notified.\n "
-	Donate          = "If this bot helped you, consider donating to me :)\n @ paypal.me/titanfitnessbot!"
+	Donate          = "If this bot helped you, consider donating to me :) @ paypal.me/titanfitnessbot!"
 	InvalidResponse = "Sorry! That request is not valid. " +
 		"Type the product name to subscribe." +
 		"You may subscribe to the following products:\n"
