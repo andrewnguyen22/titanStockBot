@@ -9,6 +9,7 @@ import (
 
 func ScrapeAllEntries(entries Entries) {
 	for _, entry := range entries {
+		fmt.Println("checking stock status of: ", entry.Name)
 		stockS, err := scrapeTitanURL(entry.Name, entry.URL)
 		if err != nil {
 			fmt.Println(err)
@@ -34,7 +35,7 @@ func scrapeTitanURL(name, url string) (ss StockStatus, err error) {
 	// init collector
 	c := colly.NewCollector()
 	// custom logic for t3 page <thanks titan :)>
-	if strings.Contains(name, "t3 tall rack") {
+	if name == "t3 tall rack" {
 		// check for option
 		c.OnHTML("option", func(e *colly.HTMLElement) {
 			fmt.Println("in t3 tall...")
@@ -45,7 +46,7 @@ func scrapeTitanURL(name, url string) (ss StockStatus, err error) {
 				return
 			}
 		})
-	} else if strings.Contains(name, "t3 short rack") {
+	} else if name == "t3 short rack" {
 		// check for option
 		c.OnHTML("option", func(e *colly.HTMLElement) {
 			fmt.Println("in t3 short...")
@@ -65,6 +66,7 @@ func scrapeTitanURL(name, url string) (ss StockStatus, err error) {
 			}
 		})
 	}
+	fmt.Println("visiting url: ", url)
 	err = c.Visit(url)
 	return
 }
