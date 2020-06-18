@@ -79,7 +79,7 @@ func (e *Entries) AddSubscription(key string, user User) {
 }
 
 func (e *Entries) Unsubscribe(u User) {
-	for key := range (*e) {
+	for key := range *e {
 		// get the sub
 		entry := (*e)[key]
 		// delete the user from the sub
