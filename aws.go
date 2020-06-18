@@ -15,7 +15,7 @@ import (
 
 const (
 	S3_REGION = "us-east-2"
-	S3_BUCKET = "titanStockBot"
+	S3_BUCKET = "titanstockbot"
 )
 
 func UploadFileToS3() {
