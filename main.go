@@ -14,6 +14,7 @@ var (
 )
 
 func init() {
+	DownloadFileFromS3()
 	err := entries.FromJSONFile()
 	if err != nil && !os.IsNotExist(err) {
 		panic(err)
@@ -40,6 +41,7 @@ func PeriodicallyCheckTitanFitness(duration time.Duration) {
 			if err != nil {
 				panic(err)
 			}
+			UploadFileToS3()
 		}
 	}
 }
