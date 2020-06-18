@@ -19,6 +19,7 @@ const (
 )
 
 func UploadFileToS3() {
+	fmt.Println("uploading entries to aws...")
 	// Open the file for use
 	file, err := os.Open(EntriesDB)
 	if err != nil {
@@ -60,6 +61,7 @@ func UploadFileToS3() {
 }
 
 func DownloadFileFromS3() {
+	fmt.Println("downloading from AWS...")
 	f, err := os.Create(EntriesDB)
 	if err != nil {
 		fmt.Println("file creation error in download: ", err.Error())

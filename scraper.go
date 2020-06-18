@@ -35,6 +35,7 @@ func scrapeTitanURL(name, url string) (ss StockStatus, err error) {
 	c := colly.NewCollector()
 	// custom logic for t3 page <thanks titan :)>
 	if strings.Contains(name, "t3 tall rack") {
+		fmt.Println("in t3 tall...")
 		// check for option
 		c.OnHTML("option", func(e *colly.HTMLElement) {
 			// Print link
@@ -46,6 +47,7 @@ func scrapeTitanURL(name, url string) (ss StockStatus, err error) {
 
 		})
 	} else if strings.Contains(name, "t3 short rack") {
+		fmt.Println("in t3 short...")
 		// check for option
 		c.OnHTML("option", func(e *colly.HTMLElement) {
 			// Print link
