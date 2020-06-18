@@ -11,7 +11,7 @@ func ScrapeAllEntries(entries Entries) {
 	for _, entry := range entries {
 		fmt.Println("checking stock status of: ", entry.Name)
 		stockS, err := scrapeTitanURL(entry.Name, entry.URL)
-		if err != nil {
+		if err != nil || stockS == 0 {
 			fmt.Println(err)
 			continue
 		}
@@ -39,7 +39,7 @@ func scrapeTitanURL(name, url string) (ss StockStatus, err error) {
 		// check for option
 		c.OnHTML("option", func(e *colly.HTMLElement) {
 			fmt.Println("in t3 tall...")
-			optionTxt:=strings.ToLower(strings.TrimSpace(e.Text))
+			optionTxt := strings.ToLower(strings.TrimSpace(e.Text))
 			fmt.Println("option text: ", optionTxt)
 			// Print link
 			if strings.Contains(optionTxt, "tall") {
@@ -52,7 +52,7 @@ func scrapeTitanURL(name, url string) (ss StockStatus, err error) {
 		// check for option
 		c.OnHTML("option", func(e *colly.HTMLElement) {
 			fmt.Println("in t3 short...")
-			optionTxt:=strings.ToLower(strings.TrimSpace(e.Text))
+			optionTxt := strings.ToLower(strings.TrimSpace(e.Text))
 			fmt.Println("option text: ", optionTxt)
 			// Print link
 			if strings.Contains(optionTxt, "short") {
