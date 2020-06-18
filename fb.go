@@ -16,9 +16,10 @@ import (
 const (
 	FacebookApi     = "https://graph.facebook.com/v2.6/me/messages?access_token=%s"
 	Subscribed      = " you are now subscribed to this product. If it changes, you will be notified.\n "
+	Unsubscribed    = "You are now unsubscribed from all! Sorry to see you go :("
 	Donate          = "If this bot helped you, consider donating to me :) @ paypal.me/titanfitnessbot!"
 	InvalidResponse = "Sorry! That request is not valid. " +
-		"Type the product name to subscribe." +
+		"Type the product name to subscribe or stop to unsubscribe from all." +
 		"You may subscribe to the following products:\n"
 )
 
@@ -91,12 +92,15 @@ func ProcessMessage(m Messaging) {
 	text := strings.ToLower(strings.TrimSpace(m.Message.Text))
 	fmt.Println("message received: ", text)
 	entry, ok := entries[text]
+	u := User{UserID: m.Sender.UserID}
 	if ok {
 		// subscribe the user
-		u := User{UserID: m.Sender.UserID}
 		entry.Subs[u.UserID] = struct{}{}
 		entries[text] = entry
 		text = entry.StatusMsg() + Subscribed + Donate
+	} else if text == "stop" {
+		entries.Unsubscribe(u)
+		text = Unsubscribed
 	} else {
 		// invalid query
 		text = InvalidResponse + entries.String()

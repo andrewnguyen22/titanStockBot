@@ -79,13 +79,15 @@ func (e *Entries) AddSubscription(key string, user User) {
 	(*e)[key] = entry
 }
 
-func (e *Entries) RemoveSubscription(key string, u User) {
-	// get the sub
-	entry := (*e)[key]
-	// delete the user from the sub
-	delete(entry.Subs, u.UserID)
-	// set the sub
-	(*e)[key] = entry
+func (e *Entries) Unsubscribe(u User) {
+	for key := range (*e) {
+		// get the sub
+		entry := (*e)[key]
+		// delete the user from the sub
+		delete(entry.Subs, u.UserID)
+		// set the sub
+		(*e)[key] = entry
+	}
 }
 
 type Subscribers map[string]struct{}
