@@ -10,7 +10,7 @@ const (
 )
 
 var (
-	entries        = make(Entries, 0)
+	entries = make(Entries, 0)
 )
 
 func init() {
