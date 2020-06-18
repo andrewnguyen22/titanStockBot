@@ -24,6 +24,7 @@ func ScrapeAllEntries(entries Entries) {
 		entries[entry.Name] = entry
 		// if there was a change,
 		if oldStatus != stockS {
+			fmt.Println("sending stock alert message")
 			StockAlertMessage(entry.Name)
 		}
 	}
