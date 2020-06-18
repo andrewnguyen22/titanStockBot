@@ -15,16 +15,16 @@
     "key": "elite 25 color bumpers",
     "url": "https://www.titan.fitness/strength/weight-plates/bumper-plates/elite-olympic-bumper-plates-%7C-color-%7C-25-kg-single/430165.html"
   },
-  "25 olympic black bumpers": {
-    "key": "25 olympic bumpers",
+  "25 black bumpers": {
+    "key": "25 black bumpers",
     "url": "https://www.titan.fitness/strength/weight-plates/bumper-plates/olympic-rubber-bumper-plates-%7C-black-%7C-25-lb-pair/430103.2.html"
   },
-  "10 olympic black bumpers": {
-    "key": "10 olympic bumpers",
+  "10 black bumpers": {
+    "key": "10 black bumpers",
     "url": "https://www.titan.fitness/strength/weight-plates/bumper-plates/olympic-rubber-bumper-plates-%7C-black-%7C-10-lb-pair/430101.2.html"
   },
-  "15 olympic black bumpers": {
-    "key": "15 olympic bumpers",
+  "15 black bumpers": {
+    "key": "15 black bumpers",
     "url": "https://www.titan.fitness/strength/weight-plates/bumper-plates/olympic-rubber-bumper-plates-%7C-black-%7C-15-lb-pair/430102.2.html"
   },
   "titan rack base model": {
@@ -75,7 +75,7 @@
     "key": "x3 short folding v1",
     "url": "https://www.titan.fitness/racks/wallmounts/folding-power-racks/x-3-series-folding-power-rack-%7C-short-%7C-21.5-in-depth/400497.html"
   },
-  "=x3 half rack": {
+  "x3 half rack": {
     "key": "x3 half rack",
     "url": "https://www.titan.fitness/racks/power-racks/x-3-series/x-3-half-rack/400406.html"
   },
@@ -179,8 +179,8 @@
     "key": "olympic power barbell",
     "url": "https://www.titan.fitness/strength/barbells/olympic/olympic-power-bar-%E2%80%93-86-in.-chrome/430087.html"
   },
-  "economy olympic barbell": {
-    "key": "economy olympic barbell",
+  "economy barbell": {
+    "key": "economy barbell",
     "url": "https://www.titan.fitness/strength/barbells/olympic/economy-olympic-bar-%E2%80%93-84-in/430085.html"
   },
   "regular olympic barbell": {
@@ -203,8 +203,8 @@
     "key": "hefty bench",
     "url": "https://www.titan.fitness/strength/benches/hefty-bench-%E2%80%93-v2/400348.2.html"
   },
-  "reverse hyper extension": {
-    "key": "reverse hyper extension",
+  "reverse hypex": {
+    "key": "reverse hypex",
     "url": "https://www.titan.fitness/strength/specialty-machines/lower-body/h-pnd/400593.html"
   }
 }
