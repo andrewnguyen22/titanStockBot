@@ -33,19 +33,23 @@ func scrapeTitanURL(name, url string) (ss StockStatus, err error) {
 	// init collector
 	c := colly.NewCollector()
 	// custom logic for t3 page <thanks titan :)>
-	if strings.Contains(url, "t3") {
+	if strings.Contains(name, "t3 tall rack") {
 		// check for option
 		c.OnHTML("option", func(e *colly.HTMLElement) {
-			e.Attr("option")
 			// Print link
-			if strings.Contains(strings.ToLower(name), "tall") && strings.Contains(strings.ToLower(e.Text), "tall") {
+			if strings.Contains(strings.ToLower(e.Text), "tall") {
 				ss = stockCheck(e)
 				return
-			} else {
-				if strings.Contains(strings.ToLower(name), "short") && strings.Contains(strings.ToLower(e.Text), "short") {
-					ss = stockCheck(e)
-					return
-				}
+			}
+
+		})
+	} else if strings.Contains(name, "t3 short rack") {
+		// check for option
+		c.OnHTML("option", func(e *colly.HTMLElement) {
+			// Print link
+			if strings.Contains(strings.ToLower(e.Text), "short") {
+				ss = stockCheck(e)
+				return
 			}
 		})
 	} else {
