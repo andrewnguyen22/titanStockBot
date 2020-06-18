@@ -35,21 +35,25 @@
     "key": "titan rack model",
     "url": "https://www.titan.fitness/racks/power-racks/titan-series/titan-series-power-rack-%7c-100%22/401011.html"
   },
-  "titan short t3 rack": {
-    "key": "titan short t3 rack",
+  "t3 short rack": {
+    "key": "t3 short rack",
     "url": "https://www.titan.fitness/t3-series-power-rack/t-3-power-rack.html"
   },
-  "titan standard t2 rack": {
-    "key": "titan standard t2 rack",
+  "t2 standard rack": {
+    "key": "t2 standard rack",
     "url": "https://www.titan.fitness/racks/power-racks/t-2-series/titan-t-2-series-power-rack/400100.html"
   },
-  "titan tall t3 rack": {
-    "key": "titan tall t3 rack",
+  "t3 tall rack": {
+    "key": "t3 tall rack",
     "url": "https://www.titan.fitness/t3-series-power-rack/t-3-power-rack.html"
   },
-  "titan tall t3 v2": {
-    "key": "titan tall t3 v2",
+  "t3 tall folding rack v2": {
+    "key": "t3 tall folding rack v2",
     "url": "https://www.titan.fitness/racks/wallmounts/folding-power-racks/t-3-series-folding-power-rack-%7C-tall-%7C-41-in-depth-%7C-v2/400992.html"
+  },
+  "t3 tall fold rack": {
+    "key": "t3 tall fold rack",
+    "url": "https://www.titan.fitness/racks/power-racks/t-3-series/t-3-series-folding-power-rack-%7C-tall-%7C-21.5-in-depth-%7C-v2/400993.html"
   },
   "x3 tall bolt rack": {
     "key": "x3 tall bolt rack",
@@ -71,17 +75,13 @@
     "key": "x3 short folding v1",
     "url": "https://www.titan.fitness/racks/wallmounts/folding-power-racks/x-3-series-folding-power-rack-%7C-short-%7C-21.5-in-depth/400497.html"
   },
-  "titan x3 half rack": {
-    "key": "titan x3 half rack",
+  "=x3 half rack": {
+    "key": "x3 half rack",
     "url": "https://www.titan.fitness/racks/power-racks/x-3-series/x-3-half-rack/400406.html"
   },
   "x2 tall bolt down": {
     "key": "x2 tall bolt down",
     "url": "https://www.titan.fitness/racks/power-racks/x-2-series/x-2-series-power-rack-%7C-tall-%7C-bolt-down-%7C-sku%3A-400302/400302.html"
-  },
-  "t3 tall fold rack": {
-    "key": "t3 tall fold rack",
-    "url": "https://www.titan.fitness/racks/power-racks/t-3-series/t-3-series-folding-power-rack-%7C-tall-%7C-21.5-in-depth-%7C-v2/400993.html"
   },
   "t2 10in extension": {
     "key": "t2 10in extension",
@@ -123,8 +123,8 @@
     "key": "x3 tall 24 bolt",
     "url": "https://www.titan.fitness/racks/power-racks/x-3-series/x-3-series-bolt-down-power-rack-%7C-tall-%7C-24%22-depth/400295.html"
   },
-  "titan t2 short rack": {
-    "key": "titan t2 short rack",
+  "t2 short rack": {
+    "key": "t2 short rack",
     "url": "https://www.titan.fitness/racks/power-racks/t-2-series/titan-t-2-series-short-power-rack/400160.html"
   },
   "x3 short 36 bolt": {
@@ -187,8 +187,8 @@
     "key": "regular olympic barbell",
     "url": "https://www.titan.fitness/strength/barbells/olympic/regular-bar-%E2%80%93-20kg-chrome/430086.html"
   },
-  "titan flat weight bench": {
-    "key": "titan flat weight bench",
+  "flat weight bench": {
+    "key": "flat weight bench",
     "url": "https://www.titan.fitness/strength/benches/flat-weight-bench/400201.2.html"
   },
   "incline weight bench v2": {
@@ -199,7 +199,7 @@
     "key": "adjustable fid bench",
     "url": "https://www.titan.fitness/strength/benches/adjustable/adjustable-fid-bench/400636.2.html"
   },
-  "titan fit hefty bench": {
+  "hefty bench": {
     "key": "hefty bench",
     "url": "https://www.titan.fitness/strength/benches/hefty-bench-%E2%80%93-v2/400348.2.html"
   },

@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"io/ioutil"
+	"sort"
 	"time"
 )
 
@@ -51,7 +52,9 @@ func (e *Entries) FromJSONFile() error {
 }
 
 func (e *Entries) String() (s string) {
-	for name := range *e {
+	sortedEntries := make([]string, len(*e))
+	sort.Strings(sortedEntries)
+	for _, name := range sortedEntries {
 		s += fmt.Sprintf("%s,\n", name)
 	}
 	return
