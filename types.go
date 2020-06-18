@@ -35,9 +35,9 @@ type Entry struct {
 
 func (e Entry) StatusMsg() string {
 	if e.Status == InStock {
-		return fmt.Sprintf("As of %s ago, %s is now in stock!\nGet it at %s", e.Name, int(time.Since(e.TimeStamp).Round(time.Minute).Minutes()), e.URL)
+		return fmt.Sprintf("As of %d ago, %s is now in stock!\nGet it at %s", int(time.Since(e.TimeStamp).Round(time.Minute).Minutes()), e.Name, e.URL)
 	}
-	return fmt.Sprintf("As of %s minutes ago, %s is out of stock", e.Name, int(time.Since(e.TimeStamp).Round(time.Minute).Minutes()))
+	return fmt.Sprintf("As of %d minutes ago, %s is out of stock", int(time.Since(e.TimeStamp).Round(time.Minute).Minutes()), e.Name)
 }
 
 type Entries map[string]Entry
