@@ -20,8 +20,10 @@ func init() {
 		panic(err)
 	}
 	for key, entry := range entries {
-		entry.Subs = make(map[string]struct{}) // map[userIDString]Empty
-		entries[key] = entry
+		if entry.Subs == nil {
+			entry.Subs = make(map[string]struct{}) // map[userIDString]Empty
+			entries[key] = entry
+		}
 	}
 	ScrapeAllEntries(entries)
 }
