@@ -43,8 +43,8 @@ func scrapeTitanURL(name, url string) (ss StockStatus, err error) {
 			fmt.Println("option text: ", optionTxt)
 			// Print link
 			if strings.Contains(optionTxt, "tall") {
-				fmt.Println("t3 tall stock check... ", ss.String())
 				ss = stockCheck(e)
+				fmt.Println("t3 tall stock check... ", ss.String())
 				return
 			}
 		})
@@ -56,8 +56,8 @@ func scrapeTitanURL(name, url string) (ss StockStatus, err error) {
 			fmt.Println("option text: ", optionTxt)
 			// Print link
 			if strings.Contains(optionTxt, "short") {
-				fmt.Println("t3 short stock check... ", ss.String())
 				ss = stockCheck(e)
+				fmt.Println("t3 short stock check... ", ss.String())
 				return
 			}
 		})
