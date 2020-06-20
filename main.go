@@ -30,8 +30,10 @@ func init() {
 
 func main() {
 	go StartMessengerServer()
-	PeriodicallyCheckTitanFitness(time.Minute)
+	PeriodicallyCheckTitanFitness(time.Minute * 1)
 }
+
+var count = 0
 
 func PeriodicallyCheckTitanFitness(duration time.Duration) {
 	ticker := time.NewTicker(duration)
@@ -43,7 +45,11 @@ func PeriodicallyCheckTitanFitness(duration time.Duration) {
 			if err != nil {
 				panic(err)
 			}
-			UploadFileToS3()
+			if count == 60 {
+				count = 0
+				UploadFileToS3()
+			}
+			count++
 		}
 	}
 }
