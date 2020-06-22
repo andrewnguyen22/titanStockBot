@@ -59,8 +59,10 @@ type Attachment struct {
 }
 
 type Response struct {
-	Recipient User    `json:"recipient,omitempty"`
-	Message   Message `json:"message,omitempty"`
+	Recipient   User    `json:"recipient,omitempty"`
+	Message     Message `json:"message,omitempty"`
+	MessageType string  `json:"message_type,omitempty"`
+	Tag         string  `json:"tag, omitempty"`
 }
 
 type Payload struct {
@@ -189,6 +191,8 @@ func StockAlertMessage(key string) {
 			Message: Message{
 				Text: e.StatusMsg() + Subscribed + Donate,
 			},
+			MessageType: "MESSAGE_TAG",
+			Tag:         "NON_PROMOTIONAL_SUBSCRIPTION",
 		}
 		sendMessage(r)
 	}
