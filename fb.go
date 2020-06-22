@@ -192,7 +192,7 @@ func StockAlertMessage(key string) {
 				Text: e.StatusMsg() + Subscribed + Donate,
 			},
 			MessageType: "MESSAGE_TAG",
-			Tag:         "NON_PROMOTIONAL_SUBSCRIPTION",
+			Tag:         "CONFIRMED_EVENT_UPDATE",
 		}
 		sendMessage(r)
 	}
