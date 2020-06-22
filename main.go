@@ -1,7 +1,10 @@
 package main
 
 import (
+	"fmt"
 	"os"
+	"os/signal"
+	"syscall"
 	"time"
 )
 
@@ -30,6 +33,20 @@ func init() {
 
 func main() {
 	go StartMessengerServer()
+	signalChannel := make(chan os.Signal, 1)
+	signal.Notify(signalChannel,
+		syscall.SIGTERM,
+		syscall.SIGINT,
+		syscall.SIGQUIT,
+		os.Kill, //nolint
+		os.Interrupt)
+
+	defer func() {
+		sig := <-signalChannel
+		fmt.Println(fmt.Sprintf("Exit signal %s received\n", sig))
+		UploadFileToS3()
+		os.Exit(3)
+	}()
 	PeriodicallyCheckTitanFitness(time.Minute * 1)
 }
 
@@ -45,7 +62,7 @@ func PeriodicallyCheckTitanFitness(duration time.Duration) {
 			if err != nil {
 				panic(err)
 			}
-			if count == 60 {
+			if count == 30 {
 				count = 0
 				UploadFileToS3()
 			}
