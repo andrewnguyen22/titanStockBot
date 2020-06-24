@@ -31,7 +31,7 @@ func ScrapeAllEntries(entries Entries) {
 }
 
 func scrapeTitanURL(name, url string) (ss StockStatus, err error) {
-	var tallDepthEnabled, tallHeightEnabled, shortDepthEnabled, shortHeightEnabled = false, false, false, false
+	tallDepthEnabled, tallHeightEnabled, shortDepthEnabled, shortHeightEnabled := false, false, false, false
 	// init collector
 	c := colly.NewCollector()
 	// custom logic for t3 page tall
@@ -45,18 +45,21 @@ func scrapeTitanURL(name, url string) (ss StockStatus, err error) {
 				// height check on t3 tall
 				if stockCheck(e) == InStock {
 					// if short is enabled
+					fmt.Println("setting tall height enabled as true")
 					tallHeightEnabled = true
 				}
 			} else if strings.Contains(optionTxt, "24") || strings.Contains(optionTxt, "36") {
 				// height check on t3 short
 				if stockCheck(e) == InStock {
 					// if short is enabled
+					fmt.Println("setting tall depth enabled as true")
 					tallDepthEnabled = true
 				}
 			}
 			// check to see if both are enabled
 			if tallHeightEnabled && tallDepthEnabled {
 				// set them to false (may be unnecessary)
+				fmt.Println("tall height and depth enabled!!")
 				tallHeightEnabled, tallDepthEnabled = false, false
 				// return as in stock
 				ss = InStock
@@ -74,6 +77,7 @@ func scrapeTitanURL(name, url string) (ss StockStatus, err error) {
 				// height check on t3 short
 				if stockCheck(e) == InStock {
 					// if short is enabled
+					fmt.Println("short height enabled!!")
 					shortHeightEnabled = true
 				}
 			} else if strings.Contains(optionTxt, "24") || strings.Contains(optionTxt, "36") {
@@ -81,10 +85,12 @@ func scrapeTitanURL(name, url string) (ss StockStatus, err error) {
 				if stockCheck(e) == InStock {
 					// if short is enabled
 					shortDepthEnabled = true
+					fmt.Println("short depth enabled!!")
 				}
 			}
 			// check to see if both are enabled
 			if shortDepthEnabled && shortHeightEnabled {
+				fmt.Println("short height and depth enabled!")
 				// set them to false (may be unnecessary)
 				shortHeightEnabled, shortDepthEnabled = false, false
 				// return as in stock
