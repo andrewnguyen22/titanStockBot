@@ -46,7 +46,7 @@ func main() {
 		UploadFileToS3()
 		os.Exit(3)
 	}()
-	PeriodicallyCheckTitanFitness(time.Minute * 5)
+	PeriodicallyCheckTitanFitness(time.Minute * 1)
 }
 
 var count = 0
