@@ -31,26 +31,62 @@ func ScrapeAllEntries(entries Entries) {
 }
 
 func scrapeTitanURL(name, url string) (ss StockStatus, err error) {
+	var tallDepthEnabled, tallHeightEnabled, shortDepthEnabled, shortHeightEnabled = false, false, false, false
 	// init collector
 	c := colly.NewCollector()
-	// custom logic for t3 page <thanks titan :)>
-	if name == "t3 tall rack" {
+	// custom logic for t3 page tall
+	if strings.Contains(strings.ToLower(name), "t3 tall rack") {
 		// check for option
 		c.OnHTML("option", func(e *colly.HTMLElement) {
 			optionTxt := strings.ToLower(strings.TrimSpace(e.Text))
 			// Print link
 			if strings.Contains(optionTxt, "tall") {
-				ss = stockCheck(e)
+				// height check on t3 tall
+				if stockCheck(e) == InStock {
+					// if short is enabled
+					tallHeightEnabled = true
+				}
+			} else if strings.Contains(optionTxt, "24") || strings.Contains(optionTxt, "36") {
+				// height check on t3 short
+				if stockCheck(e) == InStock {
+					// if short is enabled
+					tallDepthEnabled = true
+				}
+			}
+			// check to see if both are enabled
+			if tallHeightEnabled && tallDepthEnabled {
+				// set them to false (may be unnecessary)
+				tallHeightEnabled, tallDepthEnabled = false, false
+				// return as in stock
+				ss = InStock
 				return
 			}
 		})
-	} else if name == "t3 short rack" {
+		// custom logic for t3 short
+	} else if strings.Contains(strings.ToLower(name), "t3 short rack") {
 		// check for option
 		c.OnHTML("option", func(e *colly.HTMLElement) {
 			optionTxt := strings.ToLower(strings.TrimSpace(e.Text))
 			// Print link
 			if strings.Contains(optionTxt, "short") {
-				ss = stockCheck(e)
+				// height check on t3 short
+				if stockCheck(e) == InStock {
+					// if short is enabled
+					shortHeightEnabled = true
+				}
+			} else if strings.Contains(optionTxt, "24") || strings.Contains(optionTxt, "36") {
+				// height check on t3 short
+				if stockCheck(e) == InStock {
+					// if short is enabled
+					shortDepthEnabled = true
+				}
+			}
+			// check to see if both are enabled
+			if shortDepthEnabled && shortHeightEnabled {
+				// set them to false (may be unnecessary)
+				shortHeightEnabled, shortDepthEnabled = false, false
+				// return as in stock
+				ss = InStock
 				return
 			}
 		})

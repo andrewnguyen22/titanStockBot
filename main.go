@@ -40,14 +40,13 @@ func main() {
 		syscall.SIGQUIT,
 		os.Kill, //nolint
 		os.Interrupt)
-
 	defer func() {
 		sig := <-signalChannel
 		fmt.Println(fmt.Sprintf("Exit signal %s received\n", sig))
 		UploadFileToS3()
 		os.Exit(3)
 	}()
-	PeriodicallyCheckTitanFitness(time.Minute * 1)
+	PeriodicallyCheckTitanFitness(time.Minute * 2)
 }
 
 var count = 0
