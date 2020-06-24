@@ -36,6 +36,7 @@ func scrapeTitanURL(name, url string) (ss StockStatus, err error) {
 	c := colly.NewCollector()
 	// custom logic for t3 page tall
 	if strings.Contains(strings.ToLower(name), "t3 tall rack") {
+		ss = OutOfStock
 		// check for option
 		c.OnHTML("option", func(e *colly.HTMLElement) {
 			optionTxt := strings.ToLower(strings.TrimSpace(e.Text))
@@ -64,6 +65,7 @@ func scrapeTitanURL(name, url string) (ss StockStatus, err error) {
 		})
 		// custom logic for t3 short
 	} else if strings.Contains(strings.ToLower(name), "t3 short rack") {
+		ss = OutOfStock
 		// check for option
 		c.OnHTML("option", func(e *colly.HTMLElement) {
 			optionTxt := strings.ToLower(strings.TrimSpace(e.Text))
