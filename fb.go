@@ -15,13 +15,12 @@ import (
 
 const (
 	FacebookApi     = "https://graph.facebook.com/v2.6/me/messages?access_token=%s"
-	Subscribed      = " you are now subscribed to this product. If it changes, you will be notified.\n "
+	Subscribed      = " you are subscribed.\n "
 	UnsubscribedAll = "You are now unsubscribed from all! Sorry to see you go :("
 	Unsubscribed    = "You are now unsubscribed from: "
-	Donate          = "If this bot helped you, consider donating to me :) @ paypal.me/titanfitnessbot!"
-	InvalidResponse = "Sorry! That request is not valid. " +
-		"Type the product name to subscribe or stop to unsubscribe from all.\n" +
-		"You may subscribe to the following products:\n"
+	Donate          = "Please donate :) @ paypal.me/titanfitnessbot!"
+	InvalidResponse = "Invalid item:" +
+		"product name, stop <name> or stop\n"
 )
 
 type Callback struct {
