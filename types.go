@@ -27,11 +27,12 @@ func (ss StockStatus) String() string {
 }
 
 type Entry struct {
-	Name      string      `json:"key"`
-	URL       string      `json:"url"`
-	TimeStamp time.Time   `json:"time"`
-	Status    StockStatus `json:"stock-status"`
-	Subs      Subscribers `json:"subscribers"`
+	Name          string      `json:"key"`
+	URL           string      `json:"url"`
+	TimeStamp     time.Time   `json:"time"`
+	Status        StockStatus `json:"stock-status"`
+	Subs          Subscribers `json:"subscribers"`
+	Notifications int         `json:"notifications"`
 }
 
 func (e Entry) StatusMsg() string {
@@ -70,6 +71,15 @@ func (e *Entries) String() (s string) {
 	return
 }
 
+func (e *Entries) ClearNotifications() {
+	for key, entry := range *e {
+		// clear notifications to 0
+		entry.Notifications = 0
+		// reset entry
+		(*e)[key] = entry
+	}
+}
+
 func (e *Entries) AddSubscription(key string, user User) {
 	// get the sub
 	entry := (*e)[key]
@@ -79,7 +89,21 @@ func (e *Entries) AddSubscription(key string, user User) {
 	(*e)[key] = entry
 }
 
-func (e *Entries) Unsubscribe(u User) {
+func (e *Entries) Unsubscribe(u User, key string) error {
+	// get the sub
+	entry, ok := (*e)[key]
+	if !ok {
+		return fmt.Errorf("item: %s is not a valid option to unsubscribe from", key)
+	}
+	// delete the user from the sub
+	delete(entry.Subs, u.UserID)
+	// set the sub
+	(*e)[key] = entry
+	// return no error
+	return nil
+}
+
+func (e *Entries) UnsubscribeAll(u User) {
 	for key := range *e {
 		// get the sub
 		entry := (*e)[key]

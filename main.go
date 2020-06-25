@@ -62,7 +62,11 @@ func PeriodicallyCheckTitanFitness(duration time.Duration) {
 				panic(err)
 			}
 			if count == 30 {
+				// reset count
 				count = 0
+				// clear notifications
+				entries.ClearNotifications()
+				// upload to aws
 				UploadFileToS3()
 			}
 			count++

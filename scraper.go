@@ -7,6 +7,8 @@ import (
 	"time"
 )
 
+const NotificationLimit = 2
+
 func ScrapeAllEntries(entries Entries) {
 	for _, entry := range entries {
 		stockS, err := scrapeTitanURL(entry.Name, entry.URL)
@@ -20,12 +22,16 @@ func ScrapeAllEntries(entries Entries) {
 		entry.Status = stockS
 		// update timestamp
 		entry.TimeStamp = time.Now()
+		// update number of notifications
+		entry.Notifications++
 		// update entry in mapping
 		entries[entry.Name] = entry
 		// if there was a change,
 		if oldStatus != stockS {
 			fmt.Println("sending stock alert message for:", entry.Name)
-			StockAlertMessage(entry.Name)
+			if entry.Notifications < NotificationLimit {
+				StockAlertMessage(entry.Name)
+			}
 		}
 	}
 }

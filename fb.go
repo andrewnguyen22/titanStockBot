@@ -16,7 +16,8 @@ import (
 const (
 	FacebookApi     = "https://graph.facebook.com/v2.6/me/messages?access_token=%s"
 	Subscribed      = " you are now subscribed to this product. If it changes, you will be notified.\n "
-	Unsubscribed    = "You are now unsubscribed from all! Sorry to see you go :("
+	UnsubscribedAll = "You are now unsubscribed from all! Sorry to see you go :("
+	Unsubscribed    = "You are now unsubscribed from: "
 	Donate          = "If this bot helped you, consider donating to me :) @ paypal.me/titanfitnessbot!"
 	InvalidResponse = "Sorry! That request is not valid. " +
 		"Type the product name to subscribe or stop to unsubscribe from all.\n" +
@@ -101,8 +102,16 @@ func ProcessMessage(m Messaging) {
 		entries[text] = entry
 		text = entry.StatusMsg() + Subscribed + Donate
 	} else if text == "stop" {
-		entries.Unsubscribe(u)
-		text = Unsubscribed
+		entries.UnsubscribeAll(u)
+		text = UnsubscribedAll
+	} else if strings.Contains(text, "stop") {
+		item := strings.TrimSpace(text[4:])
+		err := entries.Unsubscribe(u, item)
+		if err != nil {
+			text = err.Error()
+		} else {
+			text = Unsubscribed + item
+		}
 	} else {
 		// invalid query
 		text = InvalidResponse + entries.String()
