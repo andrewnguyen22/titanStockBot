@@ -59,15 +59,16 @@ func PeriodicallyCheckTitanFitness(duration time.Duration) {
 		select {
 		case <-ticker.C:
 			ScrapeAllEntries(entries)
-			err := entries.ToJSONFile()
-			if err != nil {
-				panic(err)
-			}
 			if count == 30 {
 				// reset count
 				count = 0
 				// clear notifications
 				entries.ClearNotifications()
+				// write to json file
+				err := entries.ToJSONFile()
+				if err != nil {
+					panic(err)
+				}
 				// upload to aws
 				UploadFileToS3()
 			}
