@@ -18,7 +18,7 @@ const (
 	Subscribed      = " you are subscribed.\n "
 	UnsubscribedAll = "You are now unsubscribed from all! Sorry to see you go :("
 	Unsubscribed    = "You are now unsubscribed from: "
-	Donate          = "Please donate :) @ paypal.me/titanfitnessbot!"
+	Donate          = "Donate: paypal.me/titanfitnessbot!"
 	InvalidResponse = "Invalid item:" +
 		"product name, stop <name> or stop\n"
 )

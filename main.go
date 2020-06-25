@@ -49,6 +49,8 @@ func main() {
 	PeriodicallyCheckTitanFitness(time.Minute * 1)
 }
 
+
+
 var count = 0
 
 func PeriodicallyCheckTitanFitness(duration time.Duration) {
