@@ -33,6 +33,8 @@ func ScrapeAllEntries(entries Entries) {
 				// update entry in mapping
 				entries[entry.Name] = entry
 				StockAlertMessage(entry.Name)
+			} else {
+				fmt.Println(entry.Name, "reached the notification limit")
 			}
 		}
 	}

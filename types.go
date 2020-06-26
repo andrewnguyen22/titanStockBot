@@ -72,14 +72,11 @@ func (e *Entries) String() (s string) {
 }
 
 func (e *Entries) ClearNotifications() {
-	fmt.Println("clearing notifications...")
 	for key, entry := range *e {
-		fmt.Println("clearing notification for ", key)
 		// clear notifications to 0
 		entry.Notifications = 0
 		// reset entry
 		(*e)[key] = entry
-		fmt.Println("notification check")
 		fmt.Println((*e)[key])
 	}
 }
