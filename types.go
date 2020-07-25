@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"sort"
+	"strings"
 	"time"
 )
 
@@ -62,6 +63,9 @@ func (e *Entries) String() (s string) {
 	}
 	sort.Strings(sortedEntries)
 	for i, name := range sortedEntries {
+		if strings.Contains(name, "scratch and dent") {
+			continue
+		}
 		if i == l-1 {
 			s += fmt.Sprintf("%s", name)
 			continue
@@ -77,7 +81,6 @@ func (e *Entries) ClearNotifications() {
 		entry.Notifications = 0
 		// reset entry
 		(*e)[key] = entry
-		fmt.Println((*e)[key])
 	}
 }
 

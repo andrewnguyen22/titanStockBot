@@ -42,10 +42,11 @@ func ScrapeAllEntries(entries Entries) {
 
 func scrapeTitanURL(name, url string) (ss StockStatus, err error) {
 	tallDepthEnabled, tallHeightEnabled, shortDepthEnabled, shortHeightEnabled := false, false, false, false
+	name = strings.TrimSpace(strings.ToLower(name))
 	// init collector
 	c := colly.NewCollector()
 	// custom logic for t3 page tall
-	if strings.Contains(strings.ToLower(name), "t3 tall rack") {
+	if strings.Contains(name, "t3 tall rack") {
 		ss = OutOfStock
 		// check for option
 		c.OnHTML("option", func(e *colly.HTMLElement) {
@@ -77,7 +78,7 @@ func scrapeTitanURL(name, url string) (ss StockStatus, err error) {
 			}
 		})
 		// custom logic for t3 short
-	} else if strings.Contains(strings.ToLower(name), "t3 short rack") {
+	} else if strings.Contains(name, "t3 short rack") {
 		ss = OutOfStock
 		// check for option
 		c.OnHTML("option", func(e *colly.HTMLElement) {
@@ -108,6 +109,31 @@ func scrapeTitanURL(name, url string) (ss StockStatus, err error) {
 				return
 			}
 		})
+	} else if strings.Contains(name, "scratch and dent") {
+		// sanity check length
+		if len(name) < 17 {
+			fmt.Println("ERROR: in scratch and dent: the name length is < 17 characters")
+			return
+		}
+		// set stock status to out of stock
+		ss = OutOfStock
+		// retrieve the real item by name
+		entry, found := entries[name[:16]]
+		// if the url isn't found return
+		if !found || entry.URL == "" {
+			fmt.Println("ERROR: in scratch and dent: corresponding entry not found or URL is empty")
+			return
+		}
+		// for each product found at scratch and dent, compare ID's
+		c.OnHTML(".product", func(e *colly.HTMLElement) {
+			// get the product id from the url of the corresponding product
+			id := productIDFromURL(entry.URL)
+			idFromPageTile := e.Attr("data-pid")
+			if strings.Contains(idFromPageTile, id) {
+				ss = InStock
+				return
+			}
+		})
 	} else {
 		c.OnHTML("button", func(e *colly.HTMLElement) {
 			text := strings.ToLower(strings.TrimSpace(e.Text))
@@ -127,4 +153,14 @@ func stockCheck(e *colly.HTMLElement) StockStatus {
 	} else {
 		return InStock
 	}
+}
+
+func productIDFromURL(url string) string {
+	splitURLArr := strings.Split(url, "/")
+	// get the length of the split url array
+	arrLen := len(splitURLArr)
+	// get the end of the url
+	endOfURL := splitURLArr[arrLen-1]
+	// substring the end of the url by 5 chars to remove .html
+	return endOfURL[:len(endOfURL)-5]
 }
